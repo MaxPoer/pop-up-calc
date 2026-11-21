@@ -1,5 +1,18 @@
-/* this unbelievable mess is still not outdated, wow, i hate it
-   it's 2026 and this is still standard xD */
+/* this unbelievable mess is still not outdated, wow, i hate it.
+   It's 2026 and this is still standard xD */
+
+.result {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 12px;
+  background: #333;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 200;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .search {
   height: 100%;
@@ -68,7 +81,7 @@ input {
 input::placeholder { color: #777; }
 
 button {
-  width: 78px;
+  width: 91px;
   border: none;
   background: #666;
   color: #fff;

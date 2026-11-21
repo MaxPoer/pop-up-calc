@@ -1,18 +1,47 @@
 const { invoke } = window.__TAURI__.core;
 
-let greetInputEl;
-let greetMsgEl;
+const input = document.getElementById("input");
+const button = document.getElementById("button");
+const results = document.getElementById("results");
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
+let latest = 0;
+async function onEdit() {
+  const ticket = ++latest;
+  const lines = await invoke("on_edit", { userInput: input.value })
+  if (ticket !== latest) return; // a newer keystroke already superseded this result
+
+  results.replaceChildren(
+      ...lines.map((text) => {
+        const div = document.createElement("div");
+        div.className = "result";
+        div.textContent = text; // textContent, never innerHTML, so results can't inject markup
+        return div;
+      })
+  );
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
+async function onEnter() {
+  await invoke("on_enter", { userInput: input.value });
+}
+
+async function onButton() {
+  await invoke("hide_popup");
+}
+
+input.addEventListener("input", onEdit);
+input.addEventListener("keydown", e => {
+  if(e.key === 'Enter') onEnter();
+});
+
+button.addEventListener("click", onButton);
+
+window.addEventListener("keydown", e => {
+  if(e.key === "Escape") onButton();
+})
+
+window.__TAURI__.window.getCurrentWindow().onFocusChanged(({ payload: focused }) => {
+    if (focused) {
+        input.focus();
+        input.select(); // optional: next keystroke replaces the old query
+    }
 });

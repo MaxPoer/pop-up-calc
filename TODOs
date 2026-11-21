@@ -1,1 +1,5 @@
-src-tauri/tauri.conf.json: "alwaysOnTop": true
+logos
+
+replace absolute with (screen) relative sizes
+
+Alt+F4 listener

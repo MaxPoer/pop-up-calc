@@ -1,7 +1,11 @@
-# Tauri + Vanilla
+# PopUpCalc
+A small and handy popup calculator, unit converter, companion\
+HEAVILY influenced by [Satisfactory](https://www.satisfactorygame.com/)'s FICSIT Quick Search menu\
+Always there when you need it!\
+Click the X or **press Escape** and it hides, but stays **open in the background**\
+Hit **Ctrl+Alt+N** and it reappears!
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Javascript.
+Backend: rust (man-made)\
+Frontend: rust + tauri (mostly AI)
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+The backend logic might not be optimal, but I wanted to do it the way i learned in compiler design in uni.
