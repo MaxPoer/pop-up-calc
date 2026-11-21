@@ -10,11 +10,14 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "popupcalc",
-        "width": 800,
-        "height": 600,
+        "title": "PopUpCalc",
+        "width": 1000,
+        "height": 90,
         "decorations": false,
-        "center": true
+        "transparent": true,
+        "resizable": false,
+        "center": true,
+        "shadow": false
       }
     ],
     "security": {
