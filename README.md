@@ -1,6 +1,6 @@
 # PopUpCalc
 A small and handy popup calculator, unit converter, ...\
-HEAVILY influenced by [Satisfactory](https://www.satisfactorygame.com/)'s "FICSIT [Quick Search](https://satisfactory.wiki.gg/wiki/Controls#In-game_calculator)" menu.\
+HEAVILY influenced by [Satisfactory](https://www.satisfactorygame.com/)'s "FICSIT [Quick Search](https://satisfactory.wiki.gg/wiki/Controls#In-game_calculator)" menu.
 
 Click the X or hit Escape and it hides, but stays open in the background.\
 Hit <u>Ctrl+Alt+N</u> for it to reappear.

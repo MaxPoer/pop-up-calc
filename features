@@ -1,0 +1,32 @@
+Calculator:
+- +, -, *, /, **, ^, %, !
+- ~, &, |, xor, <<, >>, rotate
+- mod, div
+- ln, log, root, mod
+- sqr, sqrt
+- sin, cos, arcsin, cot, ...
+- pi, e, phi
+- ceil, floor, round
+- fromHex, toHex
+- BB, fibonacci, ...
+- base()
+I must be forgetting important things here
+
+Unit converter:
+- °, rad
+- °C, °F, K
+- km, mile, feet, yard, ...
+- currencies???
+- kg, lbs, etc.
+- hp, kW
+- mp/h, m/s, km/h
+
+Information:
+- isPrime, nextPrime, prevPrime
+- timestamp to time
+- city/country to timezone offset
+- country code to country name and info
+- post codes (germany)?
+- chemical elements
+- physical constants?
+- formulae
