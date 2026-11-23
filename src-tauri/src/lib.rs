@@ -1,11 +1,15 @@
 mod commands;
+mod calculator;
 
 use tauri::{LogicalSize, Manager, PhysicalPosition};
+use tauri::async_runtime::Mutex;
 use tauri_plugin_global_shortcut::{Code, Modifiers, Shortcut, ShortcutState};
+use commands::AppState;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .manage(Mutex::new(AppState::default()))
         .plugin(
             tauri_plugin_global_shortcut::Builder::new()
                 .with_shortcut(Shortcut::new(

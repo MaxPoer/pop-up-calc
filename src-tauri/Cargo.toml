@@ -1,8 +1,8 @@
 [package]
 name = "popupcalc"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "A rust + tauri popup calculator companion, allowing for quick and powerful calculations, unit conversion, etc."
+authors = ["MaxPoer"]
 edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -22,6 +22,7 @@ tauri = { version = "2", features = [] }
 tauri-plugin-opener = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+commands = "0.0.5"
 
 
 # Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration

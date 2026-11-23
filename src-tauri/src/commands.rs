@@ -1,27 +1,27 @@
 use crate::adjust_height;
+use tauri::{Error, State};
+use tauri::async_runtime::Mutex;
+use crate::calculator::handle_calculators;
+
+#[derive(Default)]
+pub(crate) struct AppState {
+    pub(crate) enter_action: String
+}
 
 #[tauri::command]
-pub fn on_edit(window: tauri::WebviewWindow, user_input: String) -> Vec<String> {
-    // this function is handed the user's input and runs it against all scanners/parsers
-    // then, the return values of the parsers are collected and displayed on dynamically adjusted window size
-
-    let mut results: Vec<String> = Vec::new();
-
-    // test logic
-    let ans: &str = match user_input.as_str() {
-        "1+1" => "2",
-        "69" => "nice",
-        _ => "",
-    };
-    if ans != "" {
-        results.push(ans.to_string());
-    }
+pub async fn on_edit(
+    app_state: State<'_, Mutex<AppState>>,
+    window: tauri::WebviewWindow,
+    user_input: String)
+    -> Result<Vec<String>, Error> {
+    
+    let mut results = handle_calculators(&app_state, user_input).await;
 
     // Showing 6 results is reasonable, beyond that space is limited
     results.truncate(6);
     // make space for the lines
     adjust_height(&window, results.len()).expect("Failed to adjust height");
-    results
+    Ok(results)
 }
 
 #[tauri::command]
